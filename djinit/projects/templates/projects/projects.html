@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Hello you are on the {{ page }} page</h1>
+
+{% if number >= 11 %}
+<p> Number is greater than 10</p>
+{% else %}
+<p> Number is lesser than 10</p>
+{% endif %}
+
+<p>
+    Maecenas accumsan dapibus sapien. Duis pretium iaculis arcu. Curabitur ut lacus. 
+    Aliquam vulputate. Suspendisse ut purus sed sem tempor rhoncus. Ut quam dui, fringilla at, dictum eget, ultricies quis, quam. 
+    Etiam sem est, pharetra non, vulputate in, pretium at, ipsum. Nunc semper sagittis orci. Sed scelerisque suscipit diam. 
+    Ut volutpat, dolor at ullamcorper tristique, eros purus mollis quam, sit amet ornare ante nunc et enim.
+</p>
+
+{% endblock content %}
