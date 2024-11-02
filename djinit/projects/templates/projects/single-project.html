@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<img style="max-width: 150px;"  src="{{ project.feature_image.url }}">
+
 <h1>{{ project.title }}</h1>
 <hr>
 {% for tag in project.tags.all %}
