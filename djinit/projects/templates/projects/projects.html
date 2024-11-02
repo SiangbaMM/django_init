@@ -2,19 +2,37 @@
 
 {% block content %}
 
-<h1>Hello you are on the {{ page }} page</h1>
+<hr>
 
-{% if number >= 11 %}
-<p> Number is greater than 10</p>
-{% else %}
-<p> Number is lesser than 10</p>
-{% endif %}
+<h1>Projects</h1>
 
-<p>
-    Maecenas accumsan dapibus sapien. Duis pretium iaculis arcu. Curabitur ut lacus. 
-    Aliquam vulputate. Suspendisse ut purus sed sem tempor rhoncus. Ut quam dui, fringilla at, dictum eget, ultricies quis, quam. 
-    Etiam sem est, pharetra non, vulputate in, pretium at, ipsum. Nunc semper sagittis orci. Sed scelerisque suscipit diam. 
-    Ut volutpat, dolor at ullamcorper tristique, eros purus mollis quam, sit amet ornare ante nunc et enim.
-</p>
+<table>
+    <tr>
+        <th>Project</th>
+        <th>Positive Votes</th>
+        <th>Ratio</th>
+        <th>Created</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    {% for project in projects %}
+        <tr>
+            <td>{{ project.title }}</td>
+            <td>{{ project.vote_total }}</td>
+            <td>{{ project.vote_ratio }}%</td>
+            <td>{{ project.created }}</td>
+            <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+            <td><a href="{% url 'delete-project' project.id %}">Delete</a></td>
+            <td><a href="{% url 'project' project.id %}">View</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<ul>
+    {% for project in projects %}
+    <li> Title : <a href="{% url 'project' project.id %}"> {{ project.title }} </a> --- {{ project.created }} </li>
+    {% endfor %}
+</ul>
 
 {% endblock content %}
