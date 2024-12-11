@@ -36,7 +36,7 @@
         {% for project in projects %}
         <div class="column">
           <div class="card project">
-            <a href="{% url 'project' project.id %}" class="project">
+            <a href="{% url 'user-profile' profile.owner.id %}" class="project">
               <img
                 class="project__thumbnail"
                 src="{{ project.featured_image.url }}"
